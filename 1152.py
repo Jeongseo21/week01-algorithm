@@ -17,4 +17,5 @@ str = input().strip()
 for s in str:
     if s == ' ':
         count += 1
+print(str)
 print(count+1)
