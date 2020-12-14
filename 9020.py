@@ -159,51 +159,29 @@ for num in nums:
     # print(start - end)
 '''
 
-# 1-N까지의 소수 구하기
-def prime_nums(N):
-    prime = []
-    a = [0] * 10010
 
-    # 배열을 생성해서 초기화
-    for i in range(2, N+1):
-        a[i] = i
-    # 특정 수의 배수에 해당하는 수를 모두 지운다
-    for i in range(2, N+1):
-        if a[i] == 0:
-            continue
-        for j in range(2, N+1, 1):
-            a[i*j] = 0
+# 에라토스의 체
+eratos = [1] * 10001
+eratos[0] = 0
+eratos[1] = 0
 
-    # 남아있는 수 모두 출력
-    for i in range(2, N+1):
-        if a[i] != 0 :
-            prime.append(a[i])
-    return prime
+for i in range(2, 10000):
+    if eratos[i] == 1:
+        j = 2 # j는 2부터 시작
+        while i*j <= 10000:
+            eratos[i*j] = 0
+            j += 1
 
-# 두개를 선택해서 num이 나오는지 확인하기
-def answer(array, num):
-    answer_list = []
-    for i in range(len(array)-1, -1, -1):
-        for j in range(len(array)-1, i-1, -1):
-            if array[i] + array[j] == num:
-                answer_list.append((array[i], array[j]))
-                break
-        if len(answer_list) == 1:
-            break
-    # print(answer_list)
-    answer = answer_list[0]
-
-    print(str(answer[0]) + " " + str(answer[1]))
-
-
-
-# 숫자 N을 입력받기
+# N을 입력받음
 N = int(input())
-nums = [0]*N
 
-for i in range(N):
-    nums[i] = int(input())
-
-for num in nums:
-    array = prime_nums(num)
-    answer(array, num)
+for i in range(0, N):
+    num = int(input())
+    num1 = -1
+    num2 = -1
+    # 절반의 숫자만 반복
+    for j in range(2, int(num//2)+1):
+        if eratos[j] and eratos[num-j]:
+            num1 = j
+            num2 = num-j
+    print(num1, num2)
