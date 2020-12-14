@@ -11,7 +11,7 @@ strip()
 str = input().strip()
 print(str.count(' ')+1)
 '''
-
+'''
 count = 0
 str = input().strip()
 for s in str:
@@ -19,3 +19,6 @@ for s in str:
         count += 1
 print(str)
 print(count+1)
+'''
+str = input().split()
+print(len(str))
