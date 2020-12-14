@@ -20,6 +20,7 @@ def abs_(i):
             return True
         else:
             return False
+
 # i열에 퀸을 배치
 def set(i):
     global answer

@@ -53,11 +53,11 @@ for _ in b:
 # 수 입력받기
 import sys
 
-N = int(input())
+N = int(sys.stdin.readline())
 # 도수 분표포 만들기
 f = [0] * 10001 # 4*10001 = 40004
 for _ in range(N):
-    f[int(input())] += 1
+    f[int(sys.stdin.readline())] += 1
 
 
 # 누적 도수분표포 만들기
@@ -71,10 +71,10 @@ for i in range(len(f)):
 for i in range(len(f)):
     if i == 0:
         for _ in range(f[0]):
-            print(i)
+            sys.stdout.write(str(i) + '\n')
         # print(f'{i}' * f[0], end='')
     else:
         for _ in range(f[i] - f[i-1]):
-            print(i)
+            sys.stdout.write(str(i) + '\n')
 
         # print(f'{i}' * (f[i]-f[i-1]), end='')
