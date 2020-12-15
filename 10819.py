@@ -5,6 +5,7 @@ n = int(input())
 arr = list(map(int, input().split()))
 nPr = itertools.permutations(arr, len(arr))
 arrays = list((nPr))
+print(arrays)
 answer = []
 for array in arrays:
     result = 0
