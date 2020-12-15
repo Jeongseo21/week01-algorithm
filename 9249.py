@@ -25,27 +25,29 @@ import sys
 string = sys.stdin.readline()
 target = sys.stdin.readline()
 check = []
-max_len = 0
 
+
+# 최장 부분 찾기
+max_len = 0
 for i in range(len(target)):
     check.append([0]*len(string))
 
     for j in range(len(string)):
         if target[i] != string[j]:
             check[i][j] = 0
-
         else:
-            if i == 0:
-                check[i][j] = 1
-            check[i][j] = check[i-1][j-1]+1
-            max_len = max(max_len, check[i][j])
+            if target[i] != '\n':
+                if i == 0:
+                    check[i][j] = 1
+                check[i][j] = check[i-1][j-1]+1
+                max_len = max(max_len, check[i][j])
 
+# # 문자열 출력
+# for i in range(len(target)):
+#     for j in range(len(string)):
+#         if check[i][j] == max_len:
+#             answer = string[j-(max_len-1):j+1]
 
-# 문자열 출력
-for i in range(len(target)):
-    for j in range(len(string)):
-        if check[i][j] == max_len:
-            answer = string[j-(max_len-1):j+1]
 
 print(max_len)
-sys.stdout.write(answer)
+# sys.stdout.write(answer)
