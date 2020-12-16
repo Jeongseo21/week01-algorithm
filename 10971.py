@@ -30,7 +30,7 @@ for n in new:
 print(answer)
 
 '''
-'''
+
 # dfs로 구현 - python3 시간초과, pypy3 통과
 N = int(input())
 
@@ -78,8 +78,8 @@ for i in range(N):
             visited[j] = 0
 
 print(ans)
-'''
 
+''''''
 N = int(input())
 way = []
 visited = [0]*N
@@ -112,5 +112,5 @@ for i in range(N):
             dfs(i, j, 1, way[i][j])
             visited[i] = 0
             visited[j] = 0
-
 print(ans)
+''''''
