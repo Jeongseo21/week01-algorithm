@@ -1,4 +1,4 @@
-
+'''
 # 런타임 에러가 발생하면 배열의 길이를 잘못 선언했는지 확인하기
 
 N = int(input())
@@ -31,3 +31,22 @@ for i in range(len(length)):
     if length[i]:
         for j in range(len(length[i])):
             print(length[i][j])
+
+'''
+
+
+####################################################
+# 승현오빠 코드
+import sys
+N = int(sys.stdin.readline())
+
+list1 = set()
+for i in range(N):
+    list1.add(sys.stdin.readline().split()[0])
+
+list1 = list(list1)
+list1.sort()
+list1.sort(key=lambda x: len(x))
+
+for i in list1:
+    print(i)
